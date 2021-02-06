@@ -62,16 +62,69 @@
       </nav>
     </div>
     <section class="settings">
-      <div>Настройки</div>
+      <h4>Настройки</h4>
       <ul class="settings-bar">
-        <li><input type="radio">Цифровой шрифт</li>
-        <li><input type="radio">12-часовой(am, pm)</li>
-        <li><input type="radio">Показать дату</li>
-        <li><input type="radio">Ночной режим</li>
-
-        <li>Цвет</li>
-        <li><button>Ок</button></li>
+        <li>
+            <div>
+              Цифровой формат
+            </div>
+            <div class="radio">
+              <input id="font-style" type="checkbox">
+              <label for="font-style"></label>
+            </div>
+          </div>
+            <div>
+              12-часовой формат
+            </div>
+            <div class="radio">
+              <input id="timezone" type="checkbox">
+              <label for="timezone"></label>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div>
+            Показать дату
+          </div>
+          <div class="radio">
+            <input id="show-date" type="checkbox">
+            <label for="show-date"></label>
+          </div>
+          Ночной режим
+          <div class="radio">
+            <input id="night-mode" type="checkbox">
+            <label for="night-mode"></label>
+          </div>
+        </li>
+        <li>
+          Цвет
+          <div class="color-galery">
+            <div class="color white">
+              <div></div>
+            </div>
+            <div class="color orange">
+              <div></div>
+            </div>
+            <div class="color red">
+              <div></div>
+            </div>
+            <div class="color green">
+              <div></div>
+            </div>
+            <div class="color blue">
+              <div></div>
+            </div>
+            <div class="color acidgreen">
+              <div></div>
+            </div>
+            <div class="color acidblue">
+              <div></div>
+            </div>
+          </div>
+        </li>
       </ul>
+      <div class="settings-button"><button>Ок</button></div>
+
     </section>
   </header>
   <main></main>
