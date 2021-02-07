@@ -7,16 +7,17 @@
   <meta name="robots" content="index,follow">
   <title>Clokus</title>
   <link rel="icon" href="/favicon-16x16.png">
-  <link href="https://fonts.googleapis.com/css?family=Pattaya|Poppins:400,500&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Fondamento:ital@1&family=Rubik&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/style.css">
 </head>
 <body>
   <header class="header">
     <div class="wrapper">
+      <div class="label">
+        Clokus
+      </div>
       <nav>
-        <div class="cog-wheel">
-          <img src="cogwheel.svg" alt="">
-        </div>
         <ul class="header-links">
           <li>
             <a class="header-link" href="">
@@ -60,6 +61,9 @@
           </li>
         </ul>
       </nav>
+      <div class="cog-wheel">
+        <img src="cogwheel.svg" alt="">
+      </div>
     </div>
     <section class="settings">
       <h4>Настройки</h4>
@@ -124,10 +128,68 @@
         </li>
       </ul>
       <div class="settings-button"><button>Ок</button></div>
-
     </section>
   </header>
-  <main></main>
+  <main>
+    <section class="clock-section">
+      <div class="clock-wrapper">
+        <div class="clock">
+          <span id="hours">22</span>:<span id="minutes">31</span>:<span id="seconds">04</span>
+        </div>
+      </div>
+      <div class="clock-set-preset-wrapper">
+        <div class="set-preset-time">
+          <div>
+            <button>4:00</button>
+            <button>5:00</button>
+            <button>6:00</button>
+            <button>7:00</button>
+            <button>8:00</button>
+            <button>9:00</button>
+          </div>
+          <div>
+            <button>4:30</button>
+            <button>5:15</button>
+            <button>6:15</button>
+            <button>7:15</button>
+            <button>8:15</button>
+            <button>10:00</button>
+          </div>
+          <div>
+            <button>5:30</button>
+            <button>6:30</button>
+            <button>7:30</button>
+            <button>8:30</button>
+            <button>11:00</button>
+          </div>
+          <div>
+            <button>5:45</button>
+            <button>6:45</button>
+            <button>7:45</button>
+            <button>8:45</button>
+            <button>12:00</button>
+          </div>
+        </div>
+        <div class="last-used">
+          <h4>Последние использованные</h4>
+          <div class="last-used-list">
+            <div>
+              <span class="last-used-utility">Будильник</span>
+              <span class="last-used-time">19:14</span>
+            </div>
+            <div>
+              <span class="last-used-utility">Будильник</span>
+              <span class="last-used-time">21:11</span>
+            </div>
+            <div>
+              <span class="last-used-utility">Будильник</span>
+              <span class="last-used-time">23:46</span>
+            </div>
+          </div>  
+        </div>
+      </div>
+    </section>
+  </main>
   <footer></footer>
   <script src="script.js"></script>
 </body>

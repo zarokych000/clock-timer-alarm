@@ -10,16 +10,30 @@ html{
   font-size: 62.5%;
 }
 
+
+
 .wrapper{
+  display: flex;
+  justify-content: space-around;
   background: #131c27;
-  width: 100%;
+}
+
+.label{
+  font-family: 'Fondamento', cursive;
+  padding-left: 1rem;
+  flex: 0 1 5rem;
+  display: block;
+  align-self: center;
+  justify-self: center;
+  color: white;
+  font-size: 5.5rem;
 }
 
 .wrapper nav {
+  flex: 2 1 40rem;
   position: relative;
   max-width: 94rem;
   /* color:  #131c27; */
-  margin: 0 auto;
   padding: 2rem;
   padding-top: 2rem;
   display: flex;
@@ -27,11 +41,11 @@ html{
 }
 
 .cog-wheel{
-  position: absolute;
-  bottom: 0.4rem;
-  left: 0;
-  width: 4rem;
-  height: 4rem;
+  flex: 0 0 6rem;
+  align-self: center;
+  margin-right: 1rem;
+  width: 8rem;
+  height: 8rem;
 }
 
 .cog-wheel img{
@@ -76,10 +90,11 @@ html{
 }
 
 .settings {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  display: none;
+  transition: all 0.5s ease 0.1s;
   color: white;
   font-size: 1.8rem;
   width: 94rem;
@@ -88,6 +103,14 @@ html{
   border-bottom-left-radius: 5rem;
   border-bottom-right-radius: 5rem;
   background: #131c27cc
+}
+
+.settings-show {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  opacity: 1;
 }
 .settings h4{
   padding-top: 1.5rem;
@@ -204,4 +227,67 @@ html{
 }
 .acidgreen{
   background: rgb(3, 255, 3);
+}
+
+/* clock section */
+
+.clock-section{
+  /* background: rgb(141, 141, 141); */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.clock-wrapper{
+  width: 94rem;
+  margin: 0 auto;
+  margin-top: 30rem;
+  background: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.clock{
+  font-family: 'Rubik', sans-serif;
+  font-size: 15rem;
+  color: rgb(0, 0, 0);
+}
+
+.clock-set-preset-wrapper{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.set-preset-time{
+  width: 20rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.set-preset-time div{
+  display: flex;
+  flex-direction: column;
+}
+
+.set-preset-time div button{
+  margin-top: 1rem;
+  font-size: 1.8rem;
+  border: none;
+  background: rgb(68, 112, 255);
+  color: white;
+}
+
+.last-used{
+
+}
+
+
+@media screen and (max-width: 944px){
+  /* settings bar section */
+.settings {
+  width: 45rem;
+}
 }
