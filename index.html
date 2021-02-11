@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Clokus is best choice for time managment. We have many tools which help you be more efficency">
   <meta name="robots" content="index,follow">
-  <title>Clokus</title>
+  <title>Clockus</title>
   <link rel="icon" href="/icons/favicon-16x16.png">
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Fondamento:ital@1&family=Rubik&display=swap" rel="stylesheet">
@@ -15,11 +15,13 @@
   <header class="header">
     <div class="wrapper">
       <div class="label">
-        Clokus
+      <a class="label-link" href="./index.html">
+        Clockus
+      </a>
       </div>
       <nav>
         <ul class="header-links">
-          <li class="header-link-active">
+          <li class="header-link header-link-active">
             <a class="header-link" href="/index.html">
               <div class="link-image">
                 <img id="alarm" src="/icons/alarm-clock-of-circular-shape.svg" alt="">
@@ -40,7 +42,7 @@
             </a>
           </li>
           <li>
-            <a class="header-link" href="#">
+            <a class="header-link" href="/stopwatch/">
               <div class="link-image">
                 <img src="/icons/stopwatch.svg" alt="">
               </div>
@@ -50,7 +52,7 @@
             </a>
           </li>
           <li>
-            <a class="header-link" href="#">
+            <a class="header-link" href="exact-time/">
               <div class="link-image"  id="bigban">
                 <img src="/icons/XMLID_133_.svg" alt="">
               </div>
@@ -132,27 +134,27 @@
   </header>
   <main>
     <section class="clock-section">
-      <div class="clock-wrapper">
-        <div class="control-font">
-          <div class="control-img-wrapper">
+      <div class="clock-section-wrapper">
+        <div class="clock-section-control">
+          <div class="clock-section-control-img">
             <img src="/icons/minus.svg" alt="minus">
           </div>
-          <div class="control-img-wrapper">
+          <div class="clock-section-control-img">
             <img src="/icons/plus.svg" alt="plus">
           </div>
         </div>
-        <div class="clock">
+        <div class="clock-section-clock">
           <span id="hours">22</span>:<span id="minutes">31</span>:<span id="seconds">04</span>
         </div>
-        <button class="set-alarm-btn">Поставить будильник</button>
+        <button class="clock-section-set-alarm">Поставить будильник</button>
       </div>
     </section>
     <section class="clock-set">
-      <div class="clock-set-preset-wrapper">
-        <div class="set-preset-time">
+      <div class="clock-set-wrapper">
+        <div class="clock-set-time">
           <h4>Поставить будильник на определенное время</h4>
           <hr>
-          <div class="set-preset-time-list">
+          <div class="clock-set-time-list">
             <div>
               <button>4:00</button>
               <button>5:00</button>
@@ -222,6 +224,6 @@
       <li><a href="#">&copy;2021</a></li>
     </ul>
   </footer>
-  <script src="script.js"></script>
+  <script src="/js/script.js"></script>
 </body>
 </html>

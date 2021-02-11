@@ -13,10 +13,15 @@ html{
 h4{
   font-size: 2.4rem;
 }
+
 ul{
   list-style: none;
 }
 
+.container{
+  margin: 0 auto;
+  width: 90%;
+}
 
 .wrapper{
   display: flex;
@@ -33,6 +38,12 @@ ul{
   justify-self: center;
   color: white;
   font-size: 5.5rem;
+}
+
+.label-link{
+  text-decoration: none;
+  color: white;
+
 }
 
 .wrapper nav {
@@ -65,13 +76,14 @@ ul{
   justify-content: space-around;
   list-style: none;
 }
+
 .header-links li{
   padding: 1rem 4rem;
 }
+
 .header-link-active{
   border: 1px solid white;
 }
-
 
 .header-link {
   color: white;
@@ -126,10 +138,12 @@ ul{
   justify-content: center;
   opacity: 1;
 }
+
 .settings h4{
   padding-top: 1.5rem;
   font-size: 2rem;;
 }
+
 .settings-bar{
   width: 100%;
   display: flex;
@@ -166,6 +180,7 @@ ul{
   border-radius: 50px;
   box-shadow: inset 0px 1px 1px rgba(0, 0, 0, 0.5), 0px 1px 0px rgba(255, 255, 255, 0.2);
 }
+
 .radio:after {
   content: 'OFF';
   color: white;
@@ -176,6 +191,7 @@ ul{
   font-weight: bold;
   text-shadow: 1px 1px 0px rgba(255, 255, 255, 0.15);
 }
+
 .radio:before {
   content: 'ON';
   color: #2a74ff;
@@ -185,6 +201,7 @@ ul{
   font: 12px/26px Arial, sans-serif;
   font-weight: bold;
 }
+
 .radio label {
   display: block;
   width: 34px;
@@ -211,14 +228,16 @@ ul{
 
 .color-galery{
   display: flex;
-  
+
 }
+
 .color{
   width: 2rem;
   height: 2rem;
   border-radius: 50%;
   margin: 0.2rem;
 }
+
 .white {
   background: white;
 }
@@ -241,10 +260,10 @@ ul{
   background: rgb(3, 255, 3);
 }
 
-/* clock section */
+/* clock-section */
 
 .clock-section{
-  /* background: rgb(141, 141, 141); */
+
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -253,9 +272,7 @@ ul{
 
 }
 
-
-
-.clock-wrapper{
+.clock-section-wrapper{
   position: relative;
   width: 79%;
   /* margin: 0 auto; */
@@ -269,38 +286,56 @@ ul{
   flex-direction: column;
 }
 
-.control-font{
+.clock-section-control{
   position: absolute;
   right: 5%;
   top: 5%;
   display: flex;
 }
 
-.control-img-wrapper{
+.clock-section-control-img{
   cursor: pointer;
   margin-right: 0.5rem;
 }
 
-.clock{
+.clock-section-clock{
   font-family: 'Rubik', sans-serif;
   font-size: 15rem;
   color: rgb(0, 0, 0);
 }
 
-.set-alarm-btn{
-  margin-top: 8rem;
-  padding: 2rem 5rem;
-  color: white;
-  border: none;
-  background:rgb(39, 96, 255)
+/* footer */
+footer {
+  background: #131c27;
 }
+
+footer ul {
+  color: white;
+  font-size: 1.8rem;
+  display: flex;
+  justify-content: center;
+  padding: 2rem 8rem; 
+}
+
+footer ul li {
+  padding-left: 0.4rem;
+}
+
+footer ul li a {
+  text-decoration: none;
+  color: white;
+
+}
+/* clock sets */
+
+
 
 .clock-set{
   background: rgb(245, 245, 245);
 
 }
 
-.clock-set-preset-wrapper{
+.clock-set-wrapper{
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -309,8 +344,8 @@ ul{
   margin: auto;
   padding: 5rem 0;
 }
-/*  */
-.set-preset-time{
+
+.clock-set-time{
   border: 4px solid white;
   padding: 3rem;
   font-size: 1.8rem;
@@ -319,24 +354,22 @@ ul{
   flex-direction: column;
 }
 
-.set-preset-time h4 {
+.clock-set-time h4 {
   margin-bottom: 1.5rem;
 }
-
-.set-preset-time-list{
+.clock-set-time-list{
   margin-top: 1rem;
   display: flex;
 }
 
-
-.set-preset-time-list div{
+.clock-set-time-list div{
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
   margin-left: 1rem;
 }
 
-.set-preset-time-list button{
+.clock-set-time-list button{
   margin-top: 1rem;
   padding: 1rem 2rem;
   font-size: 1.8rem;
@@ -373,31 +406,189 @@ ul{
   color: rgb(0, 0, 0);
 }
 
+.last-used-utility{
+  padding-right: 1rem;
+}
+
 .last-used h4 {
   margin-bottom: 1.5rem;
 }
 
-footer {
-  background: #131c27;
+/* timer */
+
+.timer-btn{
+  margin-top: 8rem;
+  color: white;
+  border: none;
+  padding: 1rem 1.5rem;
+  margin-right: 0.4rem;
+  border-radius: 0;
 }
 
-footer ul {
-  color: white;
-  font-size: 1.8rem;
-  display: flex;
+.timer-btn-change{
+  background: rgb(43, 91, 221);
+}
+
+.timer-btn-discard{
+  background: rgb(228, 168, 29);
+}
+
+.timer-btn-start{
+  background: rgb(75, 219, 30);
+}
+
+/* clock-section */
+.clock-section-timer{
+  font-size: 14rem;
+}
+
+/* clock-set-section */
+.clock-set-time-list{
   justify-content: center;
-  padding: 2rem 8rem; 
 }
 
-footer ul li {
-  padding-left: 0.4rem;
+.clock-set-time-list div{
+  padding-top: 4rem;
 }
 
-footer ul li a {
-  text-decoration: none;
+.clock-set-time-list span{
+  cursor: pointer;
+  padding: 0.5rem;
+  margin-right: 1rem;
+  font-size: 1.8rem;
+  color: rgb(67, 20, 105);
+}
+
+.clock-set-time-list span:hover{
+  color: rgb(157, 90, 212);
+}
+
+
+/* stopwatch */
+
+
+.clock-section-stopwatch{
+  font-size: 14rem;
+}
+
+/* alarm */
+
+.clock-section-set-alarm{
+  margin-top: 8rem;
+  padding: 2rem 5rem;
   color: white;
+  border: none;
+  background:rgb(39, 96, 255)
 }
 
+/* exact time */
+
+.exact-time-section{
+  justify-content: flex-start;
+  height: 66vh;
+}
+
+.exact-time-clock{
+  margin-top: 8rem;
+}
+
+.clock-section__title {
+  margin-top: 15rem;
+  font-size: 4rem;
+  font-weight: 300;
+}
+
+/* timezone */
+
+.timezone__list{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: center;
+  margin-bottom: 10rem;
+}
+
+.timezone__item{
+  padding: 1rem 0;
+  flex: 0 1 40rem;
+  box-shadow: 6px 6px 6px 7px rgb(7 7 7 / 5%);
+  margin: 1.4rem;
+}
+
+.timezone__item-add {
+  flex: 0 1 40rem;
+  margin: 1.4rem;
+  box-shadow: 6px 6px 6px 7px rgb(7 7 7 / 5%);
+  height: 18.8rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  
+}
+
+.timezone__add-button {
+  padding: 1rem 1.5rem;
+  background:rgb(118, 165, 251);
+  border: none;
+  color: white;
+  transition: all 0.1s ease;
+}
+
+.timezone__add-button:hover{
+  background:rgb(105, 146, 223);
+
+}
+
+.timezone__header{
+  border-bottom: 1px solid black;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+  padding: 0 1rem;
+  padding-bottom: 1.5rem;;
+}
+
+.timezone__title{
+  font-size: 2.5rem;
+  font-weight: 300;
+}
+
+.timezone__control{
+  display: flex;
+}
+
+.timezone__icon {
+  height: 2rem;
+  width: 2rem;
+  margin-right: .5rem;;
+}
+
+.timezone__icon img {
+  height: 100%;
+  width: 100%;
+}
+
+.timezone__content{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 2.5rem;
+  padding: 1rem;
+  padding-bottom: 4rem;
+}
+
+.timezone__clock{
+  margin-top: 1rem;
+  font-size: 3rem;
+}
+
+.timezone__dates{
+  margin-top: 0.2rem ;
+}
+
+/* media */
 
 @media screen and (max-width: 944px){
   /* settings bar section */
