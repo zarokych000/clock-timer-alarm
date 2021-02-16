@@ -23,16 +23,16 @@
                     <label for="set-hours">Часы</label>
                     <div class="select__wrapper">
                         <select class="alarm__select" name="set-hours" id="set-hours">
-                            <option value="00">00</option>
-                            <option value="01">01</option>
-                            <option selected value="02">02</option>
-                            <option value="03">03</option>
-                            <option value="04">04</option>
-                            <option value="05">05</option>
-                            <option value="06">06</option>
-                            <option value="07">07</option>
-                            <option value="08">08</option>
-                            <option value="09">09</option>
+                            <option value="0">00</option>
+                            <option value="1">01</option>
+                            <option selected value="2">02</option>
+                            <option value="3">03</option>
+                            <option value="4">04</option>
+                            <option value="5">05</option>
+                            <option value="6">06</option>
+                            <option value="7">07</option>
+                            <option value="8">08</option>
+                            <option value="9">09</option>
                             <option value="10">10</option>
                             <option value="11">11</option>
                             <option value="12">12</option>
@@ -58,16 +58,16 @@
                     <label for="set-minutes">Минуты</label>
                     <div class="select__wrapper">
                         <select class="alarm__select" name="set-minutes" id="set-minutes">
-                            <option value="00">00</option>
-                            <option value="01">01</option>
-                            <option value="02">02</option>
-                            <option value="03">03</option>
-                            <option value="04">04</option>
-                            <option value="05">05</option>
-                            <option value="06">06</option>
-                            <option selected value="07">07</option>
-                            <option value="08">08</option>
-                            <option value="09">09</option>
+                            <option value="0">00</option>
+                            <option value="1">01</option>
+                            <option value="2">02</option>
+                            <option value="3">03</option>
+                            <option value="4">04</option>
+                            <option value="5">05</option>
+                            <option value="6">06</option>
+                            <option selected value="7">07</option>
+                            <option value="8">08</option>
+                            <option value="9">09</option>
                             <option value="10">10</option>
                             <option value="11">11</option>
                             <option value="12">12</option>
@@ -154,8 +154,8 @@
             <div class="modal__footer">
                 <div class="alarm-control">
                     <button class="alarm-btn test-btn">Тест</button>
-                    <button class="alarm-btn cancel-btn">Отмена</button>
-                    <button class="alarm-btn start-btn">Старт</button>
+                    <button data-close-modal="close-modal" class="alarm-btn cancel-btn">Отмена</button>
+                    <button data-set-alarm="set-alarm" class="alarm-btn start-btn">Старт</button>
                 </div>
             </div> 
         </div>
@@ -215,7 +215,7 @@
         </div>  
         <section class="settings">
             <h4>Настройки</h4>
-            <ul class="settings-bar">
+              <ul class="settings-bar">
                 <li>
                     <div>Цифровой формат</div>
                     <div class="radio">
@@ -268,7 +268,7 @@
                         </div>
                     </div>
                 </li>
-            </ul>
+              </ul>
             <div class="settings-button"><button>Ок</button></div>
         </section>
     </header>
@@ -287,6 +287,26 @@
                     <span id="hours">22</span><span id="minutes">31</span><span id="seconds">04</span>
                 </div>
                 <button data-modal="modal" class="set-alarm">Поставить будильник</button>
+            </div>
+            <div class="list-of-alarm">
+                <div class="alarm__item">
+                  <h4 class="alarm__title">Будильник</h4>
+                  <div class="alarm__content">
+                    <div class="alarm__setted">
+                      <span class="alarm__icon">
+                        <img src="/icons/bell.svg" alt="">
+                      </span>
+                      <span id="time-alarm">23:45</span>
+                    </div>
+                    <div class="alarm__countdown">
+                      <span class="alarm__icon"><img src="/icons/counterclockwise-rotation.svg" alt=""></span>
+                      <span id="countdown-hours"></span>
+                      <span id="countdown-minutes"></span>
+                      <span id="countdown-seconds"></span>
+                    </div>
+                  </div>
+                  <button class="alarm__close">Выключить будильник</button>
+                </div>
             </div>
         </section>
         <section class="clock-set">

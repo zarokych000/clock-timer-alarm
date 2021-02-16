@@ -27,7 +27,7 @@ ul{
 .wrapper{
   display: flex;
   justify-content: space-around;
-  background: #131c27;
+  background: #ff9800;
 }
 
 .label{
@@ -275,10 +275,10 @@ ul{
 
 .clock-section-wrapper{
   position: relative;
-  width: 79%;
-  /* margin: 0 auto; */
-  margin-top: 3rem;
-  padding: 17rem 24rem;
+  max-width: 80%;
+  width: 100%;
+  margin-top: 4rem;
+  padding: 10rem 0rem;
   border: 2px solid black;
   background: white;
   display: flex;
@@ -307,7 +307,7 @@ ul{
 
 /* footer */
 footer {
-  background: #131c27;
+  background: #ffc107;
 }
 
 footer ul {
@@ -333,7 +333,7 @@ footer ul li a {
 
 .clock-set{
   background: rgb(245, 245, 245);
-
+  margin-top: 10rem;
 }
 
 .clock-set-wrapper{
@@ -374,8 +374,8 @@ footer ul li a {
   margin-top: 1rem;
   padding: 1rem 2rem;
   font-size: 1.8rem;
-  border: 2px solid rgb(14, 71, 179);
-  background: rgb(39, 96, 255);
+  border: 2px solid #ff9800;
+  background: #ffc107;
   color: white;
 }
 
@@ -475,7 +475,7 @@ footer ul li a {
 /* alarm */
 
 .set-alarm{
-  margin-top: 8rem;
+  margin-top: 3rem;
   padding: 2rem 5rem;
   color: white;
   border: none;
@@ -763,6 +763,77 @@ footer ul li a {
   background: white;
 }
 
+/* alarm */
+
+.list-of-alarm{
+  border: 2px solid black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 80%;
+  width: 100%;
+  align-self: stretch;
+  margin: auto;
+  margin-top: 3rem;
+}
+
+.alarm__item{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  max-width: 25rem;
+  width: 100%;
+  padding: 2rem;
+  font-size: 3.4rem;
+}
+
+
+.alarm__title{
+  font-size: 2.7rem;
+}
+
+.alarm__content{
+  margin-top: 1.5rem;
+}
+
+.alarm__setted{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.alarm__countdown{
+  margin-top: .6rem;
+  font-size: 1.6rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.alarm__icon {
+  display: inline-block;
+  width: 2rem;
+  margin-right: 0.5rem;
+
+}
+
+.alarm__icon img{
+  width:100%;
+  height: 100%;
+}
+
+.alarm__close{
+  margin-top: 1rem;
+  border: none;
+  background: #F56A6A;
+  color: white;
+  padding: 1rem 2rem;
+}
+
+#countdown-alarm{
+  margin-left: 0.8rem;
+}
 
 .cancel-btn{
   background:rgb(216, 81, 81);

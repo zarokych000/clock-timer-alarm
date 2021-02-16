@@ -2,6 +2,7 @@
 
 
 document.addEventListener("DOMContentLoaded", () =>{
+  // clock user timezone
   
   let hours = document.querySelector('#hours');
   let minutes = document.querySelector('#minutes');
@@ -18,10 +19,6 @@ document.addEventListener("DOMContentLoaded", () =>{
   });
   
   
-  
-  // clock user timezone
-
-
   let clockId = setTimeout(function tick(){
     changeClock();
     clockId = setTimeout(tick, 1000);
@@ -36,27 +33,87 @@ document.addEventListener("DOMContentLoaded", () =>{
     hours.innerHTML = `${hour < 10 ? '0' + hour: hour}:`;
     minutes.innerHTML = `${minute < 10 ? '0' + minute: minute}:`;
     seconds.innerHTML = `${second < 10 ? '0' +second: second}`;
+    return {
+      date,
+      second
+    };
   }
 
   // modal
 
   let modal = document.querySelector('.modal__overlay');
 
+  function toggleModal(){
+    modal.classList.toggle('hide');
+  }
+
   document.addEventListener('click', (e) =>{
     if(e.target.dataset.modal || e.target.dataset.overlay){
-      modal.classList.toggle('hide');
+      toggleModal();
     }
   });
 
   document.addEventListener('keydown', (e)=>{
     if(!modal.classList.contains('hide') && e.key == 'Escape'){
-      modal.classList.toggle('hide');
+      toggleModal();
     }
   });
 
   document.addEventListener('click', (e) =>{
     if(e.target.dataset.closeModal){
-      modal.classList.toggle('hide');
+      toggleModal();
+    }
+  });
+
+  // alarm(modal) + countdown
+  
+  let alarmHours = document.querySelector('#set-hours');
+  let alarmMinutes = document.querySelector('#set-minutes');
+
+  let settedTime = document.querySelector('#time-alarm');
+  const countdownHours = document.querySelector('#countdown-hours');
+  const countdownMinutes = document.querySelector('#countdown-minutes');
+  const countdownSeconds = document.querySelector('#countdown-seconds');
+
+  let newDate;
+
+  function countDown(){
+    let diff = ( +newDate - +changeClock().date);
+    let cdhours = Math.floor(diff / (60 * 60 * 1000) % 24);
+    let cdminutes = Math.floor(diff / (60 * 1000) % 60);
+    let cdseconds = Math.floor(diff / (1000) % 60) ;
+
+    if(diff > 0){
+      countdownHours.innerHTML =`${cdhours < 10 ? "0" + cdhours : cdhours}:`;
+      countdownMinutes.innerHTML = `${cdminutes < 10 ? "0" + cdminutes : cdminutes}:`;
+      countdownSeconds.innerHTML = `${cdseconds < 10 ? "0" + cdseconds : cdseconds}`;
+    } else {
+      countdownHours.innerHTML =`00:`;
+      countdownMinutes.innerHTML = `00:`;
+      countdownSeconds.innerHTML = `00`;
+    }
+
+    setTimeout(countDown, 1000);
+  }
+
+  function setAlarm(){
+      let date = new Date();
+
+      newDate = new Date((+date + ((+alarmHours.value) * 60 * 60 * 1000) +
+      ((+alarmMinutes.value) * 60 * 1000) + ((60 - changeClock().second )* 1000)));
+
+      settedTime.innerHTML = `
+      ${newDate.getHours() < 10 ? "0" + newDate.getHours() : newDate.getHours()}:
+      ${newDate.getMinutes() < 10 ? "0" + newDate.getMinutes() : newDate.getMinutes()}`;
+
+      setTimeout(() =>console.log('alarm trrrrr'), (+newDate - date));
+    } 
+
+  document.addEventListener('click', (e) =>{
+    if(e.target.dataset.setAlarm){
+      setAlarm();
+      countDown();
+      toggleModal();
     }
   });
 });
