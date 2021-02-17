@@ -1,7 +1,6 @@
 "use strict";
 
 
-document.addEventListener("DOMContentLoaded", () =>{
   // clock user timezone
   
   let hours = document.querySelector('#hours');
@@ -26,6 +25,9 @@ document.addEventListener("DOMContentLoaded", () =>{
 
 
   function changeClock(){
+    if(!hours){
+      return;
+    }
     let date = new Date();
     let hour = date.getHours();
     let minute = date.getMinutes();
@@ -75,7 +77,10 @@ document.addEventListener("DOMContentLoaded", () =>{
   const countdownMinutes = document.querySelector('#countdown-minutes');
   const countdownSeconds = document.querySelector('#countdown-seconds');
 
+
   let newDate;
+  let countdownId;
+
 
   function countDown(){
     let diff = ( +newDate - +changeClock().date);
@@ -93,30 +98,43 @@ document.addEventListener("DOMContentLoaded", () =>{
       countdownSeconds.innerHTML = `00`;
     }
 
-    setTimeout(countDown, 1000);
+    countdownId = setTimeout(countDown, 1000);
   }
 
   function setAlarm(){
-      let date = new Date();
+      return new Promise(function(resolve, reject){
+        let date = new Date();
 
-      newDate = new Date((+date + ((+alarmHours.value) * 60 * 60 * 1000) +
-      ((+alarmMinutes.value) * 60 * 1000) + ((60 - changeClock().second )* 1000)));
-
-      settedTime.innerHTML = `
-      ${newDate.getHours() < 10 ? "0" + newDate.getHours() : newDate.getHours()}:
-      ${newDate.getMinutes() < 10 ? "0" + newDate.getMinutes() : newDate.getMinutes()}`;
-
-      setTimeout(() =>console.log('alarm trrrrr'), (+newDate - date));
+        newDate = new Date((+date + ((+alarmHours.value) * 60 * 60 * 1000) +
+        ((+alarmMinutes.value) * 60 * 1000) + ((60 - changeClock().second )* 1000)));
+  
+        settedTime.innerHTML = `
+        ${newDate.getHours() < 10 ? "0" + newDate.getHours() :
+        newDate.getHours()}:${newDate.getMinutes() < 10 ? "0" + newDate.getMinutes() : newDate.getMinutes()}`;
+  
+        setTimeout(() =>console.log('alarm trrrrr'), (+newDate - date));
+        resolve();
+      });
     } 
 
   document.addEventListener('click', (e) =>{
     if(e.target.dataset.setAlarm){
-      setAlarm();
-      countDown();
+      setAlarm().then(() =>{
+        if(countdownId){
+          clearTimeout(countdownId);
+        }
+        countdownId = setTimeout(countDown);
+      });
       toggleModal();
     }
   });
-});
+
+  function openAlarmModal(){
+    
+  }
+
+
+
 
 
 
