@@ -44,23 +44,31 @@
   // modal
 
   let modal = document.querySelector('.modal__overlay');
-
+  let alarmModal = document.querySelector('.modal__overlay-alarm');
+  let audio;
+  // settings modal toggler
   function toggleModal(){
     modal.classList.toggle('hide');
   }
 
+  // click on set alarm button || on gray overlay
   document.addEventListener('click', (e) =>{
     if(e.target.dataset.modal || e.target.dataset.overlay){
       toggleModal();
+    } else if(e.target.dataset.overlayAlarm){
+      closeAlarmModal();
     }
   });
 
+  // keydown escape when modal or overlay modal is open
   document.addEventListener('keydown', (e)=>{
     if(!modal.classList.contains('hide') && e.key == 'Escape'){
       toggleModal();
+    } else if(!alarmModal.classList.contains('hide') && e.key == "Escape"){
+      closeAlarmModal();
     }
   });
-
+  // click on right crist on modal or cancel button
   document.addEventListener('click', (e) =>{
     if(e.target.dataset.closeModal){
       toggleModal();
@@ -77,10 +85,12 @@
   const countdownMinutes = document.querySelector('#countdown-minutes');
   const countdownSeconds = document.querySelector('#countdown-seconds');
 
+  const bottomPanel = document.querySelector('.list-of-alarm');
+  const test = document.querySelector('.set-btn');
+
 
   let newDate;
   let countdownId;
-
 
   function countDown(){
     let diff = ( +newDate - +changeClock().date);
@@ -93,6 +103,7 @@
       countdownMinutes.innerHTML = `${cdminutes < 10 ? "0" + cdminutes : cdminutes}:`;
       countdownSeconds.innerHTML = `${cdseconds < 10 ? "0" + cdseconds : cdseconds}`;
     } else {
+      console.log('gone');
       countdownHours.innerHTML =`00:`;
       countdownMinutes.innerHTML = `00:`;
       countdownSeconds.innerHTML = `00`;
@@ -111,12 +122,14 @@
         settedTime.innerHTML = `
         ${newDate.getHours() < 10 ? "0" + newDate.getHours() :
         newDate.getHours()}:${newDate.getMinutes() < 10 ? "0" + newDate.getMinutes() : newDate.getMinutes()}`;
-  
-        setTimeout(() =>console.log('alarm trrrrr'), (+newDate - date));
+        
+        togglebottompanel();
+        setTimeout(() => openAlarmModal(), (+newDate - date));
         resolve();
       });
     } 
 
+  // 
   document.addEventListener('click', (e) =>{
     if(e.target.dataset.setAlarm){
       setAlarm().then(() =>{
@@ -129,10 +142,39 @@
     }
   });
 
+  document.addEventListener('click', (e) =>{
+    if(e.target.classList.contains('test-btn')){
+      toggleModal();
+      openAlarmModal();
+    }
+  });
+
   function openAlarmModal(){
-    
+    console.log('Тррр тррр');
+    alarmModal.classList.remove('hide');
+    playAudio();
+    clearTimeout(countdownId);
   }
 
+  function closeAlarmModal(){
+    alarmModal.classList.add('hide');
+    stopAudio();
+    clearTimeout(countdownId);
+  }
+
+  function playAudio(){
+    audio = new Audio('../audio/alarm-sound.mp3');
+    audio.loop = true;
+    audio.play();
+  }
+
+  function stopAudio(){
+    audio.pause();
+  }
+
+  function togglebottompanel(){
+    bottomPanel.classList.toggle('hide');
+  }
 
 
 
